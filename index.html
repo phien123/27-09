@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập ngày 27/09</title>
+</head>
+<style> 
+    body {text-align: left; margin-left: 15cm; margin-top: 1.5cm;}
+    input {
+        background-color: rgb(211, 143, 143);
+        border-color: black;
+        font-size: 15px;
+    }
+    p{
+        font-size: 20px;;
+    }
+</style>
+<body>
+    <h3> Bài 1: Tính tổng từ 1 đến n</h3>
+    <p> Nhập số n:  <input type="text" id="txta" size="10"> </p> 
+    <input type="button" value="Tổng" onclick="b1()" >
+    <input type="text" id="txtTong" size="20" readonly>
+    <h3> Bài 2: Tính tổng các số chẵn từ 1 đến n</h3>
+    <p> Nhập số n:  <input type="text" id="txtb" size="10"> </p>
+    <input type="button" value="Tổng" onclick="b2()">
+    <input type="text" id="txtTong1" size="20" readonly>
+    <h3> Bài 3: Tính tổng các số lẻ từ 1 đến n</h3>
+    <p> Nhập số n:  <input type="text" id="txtc" size="10"> </p>
+    <input type="button" value="Tổng" onclick="b3()" >
+    <input type="text" id="txtTong2" size="20" readonly>
+    <h3> Bài 4: Kiểm tra n có phải số nguyên tố không ?</h3>
+    <p> Nhập số n:  <input type="text" id="txtd" size="10"> </p>
+    <input type="button" value="Kiểm tra" onclick="b4()">
+    <input type="text" id="txtKT" size="25" readonly>
+    <h3> Bài 5: Tìm UCLN của hai số a và b </h3>
+    <p> Nhập số a:  <input type="text" id="txte" size="10"> </p>
+    <p> Nhập số b:  <input type="text" id="txtf" size="10"> </p>
+    <input type="button" value="UCLN" onclick="b5()">
+    <input type="text" id="txtUCLN" size="20" readonly>
+</body>
+<script>
+    function b1()
+        {
+            var a=parseInt(document.getElementById("txta").value);
+            var S=0; 
+            for (let i=1; i<=a; i++){
+                S+=i
+            }
+            document.getElementById("txtTong").value=S;
+        }
+    function b2()
+        {
+            var b=parseInt(document.getElementById("txtb").value);
+            var S=0; 
+            for (let i=2; i<=b; i+=2){
+                S+=i
+            }
+            document.getElementById("txtTong1").value=S;
+        }
+    function b3()
+        {
+            var c=parseInt(document.getElementById("txtc").value);
+            var S=0; 
+            for (let i=1; i<=c; i+=2){
+                S+=i
+            }
+            document.getElementById("txtTong2").value=S;
+        }
+    function b4()
+        {
+            var d=parseInt(document.getElementById("txtd").value); 
+            if (d < 2) {
+                document.getElementById("txtKT").value = "Không phải số nguyên tố";
+                return;}
+            for (let i=2; i<=Math.sqrt(d); i++){
+                if (d%i===0){
+                    document.getElementById("txtKT").value="Không phải số nguyên tố";
+                    return;
+                }
+            }
+            document.getElementById("txtKT").value="Là số nguyên tố";
+        }
+    function b5()
+        {
+            var e=parseInt(document.getElementById("txte").value); 
+            var f=parseInt(document.getElementById("txtf").value); 
+            var r, UCLN;
+            while (f!==0){
+                r=e%f;
+                e=f;
+                f=r;
+            }
+            UCLN=e;
+            document.getElementById("txtUCLN").value=UCLN;
+        }
+    </script> 
+</html>
